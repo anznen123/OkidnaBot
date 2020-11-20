@@ -1,5 +1,5 @@
 import discord
-
+import os
 client = discord.Client()
 
 @client.event
@@ -13,5 +13,6 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith("1"): #명령어 입력시
         await message.channel.send("2") #명령어 입력시 출력할 메세지
-
-client.run("Njg2OTc2MzE1NzM5NzM0MDQw.XmfCjQ.en6zZvqBh8-u-23lXiq9brnZ7Ek")
+        
+access_token = os.environ["BOT_TOKEN"]
+client.run(access.token)
