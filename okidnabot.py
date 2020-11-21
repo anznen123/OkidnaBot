@@ -1,18 +1,34 @@
 import discord
 import os
+from bs4 import BeautifulSoup
+from selenium import webdriver
 client = discord.Client()
 
+
+url = "https://archeage.xlgames.com/play/worldinfo/DAHUTA"
+
+driver = webdriver.Chrome('./driver/chromedriver.exe')
+driver.implicitly_wait(3) #버튼이 생성이 안되었을 때 기다려주는 시간(묵시적 대기)
+
+# 페이지 가져오기
+driver.get(url)
+
+html = driver.page_source
+soup = BeautifulSoup(html)
+
+for anchor in soup.select('div.bond-info'):
+        print(anchor.get_text())
 @client.event
 async def on_ready():
     print(client.user.id)
     print("ready")
-    game = discord.Game("계승자 주머니 까는중...")
+    game = discord.Game("히라마 서부에서 사냥")
     await client.change_presence(status=discord.Status.online, activity=game)
 
 @client.event
 async def on_message(message):
-    if message.content.startswith("1"): #명령어 입력시
-        await message.channel.send("2") #명령어 입력시 출력할 메세지
+    if message.content.startswith("!채권"):
+        await message.channel.send(anchor.get_text())
         
 access_token = os.environ["BOT_TOKEN"]
 client.run(access.token)
