@@ -18,6 +18,7 @@ soup = BeautifulSoup(html)
 
 for anchor in soup.select('div.bond-info'):
         print(anchor.get_text())
+        
 @client.event
 async def on_ready():
     print(client.user.id)
