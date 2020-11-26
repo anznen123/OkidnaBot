@@ -32,6 +32,6 @@ async def on_message(message):
     if message.content.startswith("!채권"):
         await message.channel.send(anchor.get_text())
         
-access_token = os.environ["BOT_TOKEN"]
+access_token = os.environ['BOT_TOKEN']
 client.run(access.token)
 
