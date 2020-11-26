@@ -32,4 +32,4 @@ async def on_message(message):
     if message.content.startswith("!채권"):
         await message.channel.send(anchor.get_text())
 
-client.run('Njg2OTc2MzE1NzM5NzM0MDQw.XmfCjQ.Qw_qHUnzhfbRIWlKVV3AGoDWhxc')
+client.run('Njg2OTc2MzE1NzM5NzM0MDQw.XmfCjQ.kGHX_Dcd9PDvPAHMpnlabr63SZY')
